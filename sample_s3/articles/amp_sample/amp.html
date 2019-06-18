@@ -1,0 +1,851 @@
+<!doctype html>
+<html amp lang="ja">
+
+<head>
+    <meta charset="utf-8">
+    <script async src="https://cdn.ampproject.org/v0.js"></script>
+    <title>Hello, AMPs</title>
+    <link rel="canonical" href="自分自身のurl">
+    <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
+    <script type="application/ld+json">
+        {
+            "@context": "http://schema.org",
+            "@type": "NewsArticle",
+            "headline": "Open-source framework for publishing content",
+            "datePublished": "2015-10-07T12:02:41Z",
+            "image": [
+                "logo.jpg"
+            ]
+        }
+    </script>
+    <style amp-boilerplate>
+        body {
+            -webkit-animation: -amp-start 8s steps(1, end) 0s 1 normal both;
+            -moz-animation: -amp-start 8s steps(1, end) 0s 1 normal both;
+            -ms-animation: -amp-start 8s steps(1, end) 0s 1 normal both;
+            animation: -amp-start 8s steps(1, end) 0s 1 normal both
+        }
+
+        @-webkit-keyframes -amp-start {
+            from {
+                visibility: hidden
+            }
+
+            to {
+                visibility: visible
+            }
+        }
+
+        @-moz-keyframes -amp-start {
+            from {
+                visibility: hidden
+            }
+
+            to {
+                visibility: visible
+            }
+        }
+
+        @-ms-keyframes -amp-start {
+            from {
+                visibility: hidden
+            }
+
+            to {
+                visibility: visible
+            }
+        }
+
+        @-o-keyframes -amp-start {
+            from {
+                visibility: hidden
+            }
+
+            to {
+                visibility: visible
+            }
+        }
+
+        @keyframes -amp-start {
+            from {
+                visibility: hidden
+            }
+
+            to {
+                visibility: visible
+            }
+        }
+    </style><noscript>
+        <style amp-boilerplate>
+            body {
+                -webkit-animation: none;
+                -moz-animation: none;
+                -ms-animation: none;
+                animation: none
+            }
+        </style>
+    </noscript>
+    <style amp-custom>
+        * {
+            font-family: "Noto Sans JP";
+            --height-related-width: calc(72vw * 0.1);
+            --height-min: 52px;
+            --height-max: 79px;
+        }
+
+        body {
+            line-height: 158%;
+            font-size: 0.95rem;
+            padding: calc(var(--height-related-width) + 6px) 0 50px 0;
+            letter-spacing: 0.9px;
+            color: #353f46;
+        }
+
+        #header {
+            z-index: 9;
+            background-color: white;
+            width: 100%;
+            margin-bottom: 10px;
+            box-shadow: 0 4px 12px 0 rgba(0, 0, 0, 0.05);
+            position: fixed;
+            top: 0;
+            height: var(--height-related-width);
+            min-height: var(--height-min);
+            max-height: var(--height-max);
+            padding: 0;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        #header-img {
+            width: 72px;
+            height: 37px;
+        }
+
+        #header-left {
+            display: inline-block;
+            margin-left: calc(var(--height-related-width) * 0.5 - 12px);
+        }
+
+        #header .header-left-in {
+            padding: calc(var(--height-related-width) * 0.5 - 14px) 0px 0px 0px;
+        }
+
+        #header-right {
+            display: inline-block;
+            margin-right: calc(var(--height-related-width) * 0.5 - 12px);
+        }
+
+        .header-right-content {
+            padding: calc(var(--height-related-width) * 0.5 - 14px) 0px 0px 0px;
+        }
+
+        @media (max-width:720px) {
+            * {
+                --height-related-width: var(--height-min);
+            }
+
+            #header-img {
+                width: 56.5px;
+                height: 29px;
+            }
+
+            #header .header-left-in {
+                padding: calc(var(--height-related-width) * 0.5 - 12px) 0px 0px 0px;
+            }
+        }
+
+        @media(min-width:1100px) {
+            * {
+                --height-related-width: var(--height-max);
+            }
+        }
+
+
+
+        #article {
+            display: block;
+            margin: 0 16px;
+        }
+
+        section {
+            margin: 0px 0px 22px 0px;
+        }
+
+        a {
+            color: lightseagreen;
+
+        }
+
+        h1 {
+            text-align: left;
+            font-size: 1.38rem;
+            font-weight: 600;
+            line-height: 140%;
+            letter-spacing: 1.2px;
+            margin:-14px 0 20px 0;
+        }
+
+        h2 {
+            color: hotpink;
+            border-bottom: transparent;
+            border-color: lightgrey;
+            letter-spacing: 1.3px;
+
+            margin: 0;
+            font-size: 1.25rem;
+            position: relative;
+            font-weight: bold;
+            display: inline-block;
+            padding: 40px 0 0 13px;
+        }
+
+        h2::before {
+            content: '';
+            background-color: papayawhip;
+            display: block;
+            position: absolute;
+            left: -5px;
+            height: 70px;
+            width: 70px;
+            border-radius: 50%;
+            top: 12px;
+            z-index: -1;
+        }
+
+        h3 {
+            margin: 29px 0 0 0;
+            font-size: 1.1rem;
+            color: hotpink;
+            letter-spacing: 1.2px;
+            position: relative;
+            padding: 17px 3px 17px 23px;
+            background: aliceblue;
+        }
+
+        h3:after {
+            position: absolute;
+            content: '';
+            top: 100%;
+            left: 30px;
+            border: 15px solid transparent;
+            border-top: 15px solid aliceblue;
+            width: 0;
+            height: 0;
+        }
+
+        p {
+            margin: 25px 0;
+        }
+
+        .size-middle {
+            font-size: 18px;
+        }
+
+        ul {
+            background-color: transparent;
+            padding: 10px 0 10px 26px;
+        }
+
+        ol.inner-link-in-inner-link-list {
+            color: lightseagreen;
+        }
+
+        li {
+            color: palevioletred;
+        }
+
+        .marker {
+            background: linear-gradient(transparent 63%, #fee681 0%);
+        }
+
+        .box {
+            position: relative;
+            margin: 40px 0 -2px 0;
+            padding: 0px 13px 0px 13px;
+            border: solid 3px;
+            color: lightpink;
+            border-radius: 8px;
+        }
+
+        .box .box-title {
+            position: absolute;
+            display: inline-block;
+            top: -13px;
+            left: 10px;
+            padding: 0 9px;
+            line-height: 1;
+            font-size: 19px;
+            background: #FFF;
+            color: lightpink;
+            font-weight: bold;
+        }
+
+        .box p {
+            margin: 0;
+            padding: 0;
+        }
+
+        .breadcrumbs-list {
+            position: relative;
+            left: -9px;
+            background-color: transparent;
+            padding: 0 3px;
+            display: inline-block;
+            margin: 9px 0px 14px 0px;
+        }
+
+        .breadcrumbs-element {
+            display: inline-block;
+            font-weight: bold;
+        }
+
+        .breadcrumbs-element a {
+            display: inline-block;
+            padding: 0 3px 0 7px;
+            height: 28px;
+            line-height: 28px;
+            color: #353f46;
+            font-size: 13px;
+        }
+
+        .breadcrumbs-element::after {
+            content: ">";
+            font-size: 10px;
+            color: #353f46;
+        }
+
+        .breadcrumbs-element:last-child::after {
+            content: "";
+        }
+
+        .thumbnail {
+            position: relative;
+            width: 100vw;
+            left: -16px;
+        }
+
+        .thumbnail img {
+            width: 100vw;
+        }
+
+        .tag-list {
+            list-style: none;
+            background-color: white;
+            padding: 0;
+            margin: 10px 0 31px 0;
+            display: flex;
+            justify-content: start;
+        }
+
+        .tag-element a {
+            font-size: .8rem;
+            color: #747772;
+            border: 1px solid #747772;
+            border-radius: 6px;
+            text-decoration: none;
+            padding: .2em .5em;
+            margin: 3px;
+        }
+
+        .time-editor-wrap {
+            display: flex;
+            flex-direction: row-reverse;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .post-date {
+            margin: 0;
+            font-weight: 600;
+            letter-spacing: 0.4px;
+            font-size: 12px;
+            color: lightgray;
+        }
+
+        .post-view {
+            margin: 0;
+            font-weight: 600;
+            letter-spacing: 0.4px;
+            font-size: 13px;
+            color: lightgray;
+        }
+
+        .editor-rank-name {
+            display: flex;
+            flex-direction: column;
+            margin:0 0 4px 62px;
+        }
+
+        .bottom-wrap {
+            height: 60px;
+            position: fixed;
+            bottom: 0;
+            right: 0;
+            background: white;
+            z-index: 999;
+            display: flex;
+            align-items: center;
+            border: solid 1px gray;
+        }
+
+        .bottom-item-wrap {
+            display: flex;
+            flex-direction: column;
+            padding:0 3vw 0 14vw;
+            width: 45vw;
+            height: 60px;
+        }
+
+        .bottom-item-name {
+            font-size: 0.6em;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            font-weight: 800;
+            line-height: 20px;
+        }
+
+        .bottom-item-link-button {
+            font-size: 0.7em;
+            line-height: 28px;
+            border: solid 1px #ff3e6c;
+            background-color: #ff3e6c;
+            color: white;
+            text-decoration: none;
+            text-align: center;
+            padding: 0;
+        }
+
+        .bottom-top-link-wrap,
+        .bottom-heart-wrap {
+            display: grid;
+            border-left: solid 1px gray;
+            text-align: center;
+            width: 17.5vw;
+        }
+
+        .bottom-top-link,
+        .bottom-heart {
+            color: gray;
+            text-decoration: none;
+            font-size: 25px;
+        }
+
+        .inner-link-list {
+            background-color: transparent;
+            padding: 11px 20px 13px 0px;
+            border: solid 13.5px papayawhip;
+        }
+
+        .triangle {
+            width: 0;
+            height: 0;
+            border-left: 30px solid transparent;
+            border-right: 30px solid transparent;
+            border-top: 30px solid papayawhip;
+            position: relative;
+            top: -16px;
+            left: calc(50% - 30px);
+        }
+
+        .inner-link-element {
+            background-color: transparent;
+        }
+
+        @media (min-width: 720px) {
+            #article {
+                max-width: 720px;
+                margin: 0 auto;
+            }
+
+            .bottom-item-wrap {
+                display: flex;
+                flex-direction: column;
+                padding-left: 60px;
+                width: 280px;
+                height: 60px;
+            }
+
+            .bottom-top-link-wrap,
+            .bottom-heart-wrap {
+                display: grid;
+                border-left: solid 1px gray;
+                text-align: center;
+                width: 100px;
+            }
+
+            .breadcrumbs-list,
+            .thumbnail,
+            .thumbnail img {
+                left: 0;
+                width: 100%;
+            }
+        }
+
+        .top_svg_0 {
+            fill: #353F46;
+        }
+
+        .top_svg_1 {
+            fill: #FFFFFF;
+        }
+
+        .heart_svg_0 {
+            display: none;
+        }
+
+        .heart_svg_1 {
+            display: inline;
+        }
+
+        .heart_svg_2 {
+            fill: #FF3F6C;
+            stroke: #FF3F6C;
+            stroke-width: 0.3;
+            stroke-miterlimit: 10;
+        }
+
+        .heart_svg_3 {
+            display: inline;
+            fill: #FF3F6C;
+        }
+
+        .chara-set-wrap {
+            display: flex;
+        }
+
+        .chara-img-wrap {
+            padding: 3px 10px;
+        }
+
+        .chara-content-wrap {
+            flex: 1;
+            border: 3px solid #eee;
+            background-color: #fff;
+            color: #444;
+            padding: 1.5%;
+            position: relative;
+            border-radius: 5px;
+        }
+
+        .chara-content-wrap::before {
+            border-right: 8px solid #eee;
+            border-bottom: 8px solid transparent;
+            border-top: 8px solid transparent;
+            top: 14px;
+            left: -11px;
+            content: "";
+            position: absolute;
+        }
+
+        .chara-content {
+            margin: 0;
+        }
+
+        .chara-content::after {
+            border-right: 10px solid #fff;
+            border-bottom: 8px solid transparent;
+            border-top: 8px solid transparent;
+            top: 14px;
+            left: -7px;
+            content: "";
+            position: absolute;
+        }
+
+        .img-wrapper,
+        .thumbnail {
+            margin:39px 0 36px 0;
+        }
+
+        nav.breadcrumbs-wrap {
+            margin-bottom: -39px;
+        }
+    </style>
+
+    <link href="https://fonts.googleapis.com/css?family=Noto+Sans+JP" rel="stylesheet">
+</head>
+
+<body>
+    <header id="header">
+        <div id="header-left">
+            <div class="header-left-in">
+                <a href="/">
+                    <amp-img media="(min-width:720px)" width="72" height="37" layout="fixed" id="header-img"
+                        src="https://mybestcosme-article.s3-ap-northeast-1.amazonaws.com/assets/l_logo.png"></amp-img>
+                    <amp-img media="(max-width:719px)" width="56.5" height="29" layout="fixed" id="header-img"
+                        src="https://mybestcosme-article.s3-ap-northeast-1.amazonaws.com/assets/s_logo.png"></amp-img>
+                </a>
+            </div>
+        </div>
+        <div id="header-right">
+            <div class="header-right-in">
+                <div class="header-right-content">
+                    <a href="http://nav.cx/bb1MM3j">
+                        <amp-img src="https://scdn.line-apps.com/n/line_add_friends/btn/ja.png" alt="友だち追加"
+                            layout="fixed" width="100" height="31"></amp-img>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+    <div class="bottom-wrap">
+            <div class="bottom-item-wrap" style="background:url(https://www.sunstar-shop.jp/resource/sku/g00541/img/g00541_01.jpg) 0vw center/60px no-repeat;">
+            <span class="bottom-item-name">特定保健用食品 緑でサラナ</span>
+            <a href="/" class="bottom-item-link-button">商品詳細ページへ</a>
+        </div>
+        <div class="bottom-top-link-wrap">
+            <a href="#top" class="bottom-top-link">
+                <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 20 20"><path class="top_svg_0" d="M19.256 20H.744A.745.745 0 0 1 0 19.256V.743C0 .333.334 0 .744 0h18.513c.409 0 .743.333.743.743v18.513c0 .41-.334.744-.744.744zM.744.743v18.513h18.513V.743H.744z"/><path class="top_svg_0" d="M.75.75h18.5v18.5H.75z"/><g><path class="top_svg_1" d="M12.869 11.96L10 9.091 7.131 11.96l-.526-.526L10 8.039l3.395 3.395z"/></g></svg>
+            </a>
+        </div>
+        <div class="bottom-heart-wrap">
+            <a href="" class="bottom-heart">
+                <svg xmlns="http://www.w3.org/2000/svg" width="25" height="23" viewBox="0 0 15 13"><g class="heart_svg_0"><g class="heart_svg_1"><path class="heart_svg_2" d="M7.536 12.446l-.185-.264c-.751-1.072-1.056-1.323-2.067-2.155-.43-.355-.966-.796-1.712-1.443C.998 6.351.999 4.871 1 3.79v-.062c0-.658.319-1.432.833-2.02C2.288 1.187 3.104.565 4.409.554 6.144.542 7.137 1.765 7.536 2.403c.397-.634 1.382-1.85 3.099-1.85h.028c1.305.01 2.121.633 2.576 1.154.514.588.833 1.363.833 2.021v.062c.001 1.08.002 2.56-2.572 4.793-.746.647-1.282 1.088-1.712 1.443-1.011.832-1.316 1.084-2.067 2.155l-.185.265zM4.437 1.006h-.024c-1.138.009-1.846.548-2.24.999-.532.609-.721 1.309-.721 1.724v.062c-.001 1.048-.002 2.354 2.416 4.451a80.837 80.837 0 0 0 1.704 1.436c.936.771 1.302 1.073 1.965 1.985.663-.913 1.029-1.214 1.965-1.985.429-.353.962-.792 1.704-1.436 2.418-2.098 2.417-3.403 2.416-4.451v-.062c0-.414-.189-1.114-.721-1.724-.394-.451-1.102-.99-2.239-.999h-.024c-1.987 0-2.885 1.937-2.894 1.957l-.208.455-.206-.456c-.002-.004-.234-.506-.714-.997-.623-.636-1.357-.959-2.179-.959z"/></g><path class="heart_svg_3" d="M8 11.554l5.083-5.25.5-1.813V3.012l-.458-.875L13 1.554l-.937-.292-.834-.208h-1.118L9 1.554l-.812.583L8 2.554H7l-.667-.771-.812-.604L4 .554l-.896.75-1.062.875L1 3.554l.604 1.354.479 1.438 1.605 1.666 3.458 3.271z"/></g><path class="heart_svg_2" d="M7.536 12.446l-.185-.264c-.751-1.072-1.056-1.323-2.067-2.155-.43-.355-.966-.796-1.712-1.443C.998 6.351.999 4.871 1 3.79v-.062c0-.658.319-1.432.833-2.02C2.288 1.187 3.104.565 4.409.554 6.144.542 7.137 1.765 7.536 2.403c.397-.634 1.382-1.85 3.099-1.85h.028c1.305.01 2.121.633 2.576 1.154.514.588.833 1.363.833 2.021v.062c.001 1.08.002 2.56-2.572 4.793-.746.647-1.282 1.088-1.712 1.443-1.011.832-1.316 1.084-2.067 2.155l-.185.265zM4.437 1.006h-.024c-1.138.009-1.846.548-2.24.999-.532.609-.721 1.309-.721 1.724v.062c-.001 1.048-.002 2.354 2.416 4.451a80.837 80.837 0 0 0 1.704 1.436c.936.771 1.302 1.073 1.965 1.985.663-.913 1.029-1.214 1.965-1.985.429-.353.962-.792 1.704-1.436 2.418-2.098 2.417-3.403 2.416-4.451v-.062c0-.414-.189-1.114-.721-1.724-.394-.451-1.102-.99-2.239-.999h-.024c-1.987 0-2.885 1.937-2.894 1.957l-.208.455-.206-.456c-.002-.004-.234-.506-.714-.997-.623-.636-1.357-.959-2.179-.959z"/></svg>
+            </a>
+        </div>
+    </div>
+
+
+    <article id="article">
+        <nav class="breadcrumbs-wrap">
+            <ol class="breadcrumbs-list" itemscope="" itemtype="http://schema.org/BreadcrumbList">
+                <li class="breadcrumbs-element" itemprop="itemListElement" itemscope=""
+                    itemtype="http://schema.org/ListItem">
+                    <a itemprop="item" href="https://mybestcosme.jp/">
+                        <span itemprop="name">HOME</span>
+                    </a>
+                    <meta itemprop="position" content="1">
+                </li>
+
+                <li class="breadcrumbs-element" itemprop="itemListElement" itemscope=""
+                    itemtype="http://schema.org/ListItem">
+                    <a itemprop="item" href="https://mybestcosme.jp/worry/">
+                        <span itemprop="name">お悩み</span>
+                    </a>
+                    <meta itemprop="position" content="2">
+                </li>
+
+                <li class="breadcrumbs-element" itemprop="itemListElement" itemscope=""
+                    itemtype="http://schema.org/ListItem">
+                    <a itemprop="item" href="https://mybestcosme.jp/worry/skin-troble">
+                        <span itemprop="name">肌荒れ</span>
+                    </a>
+                    <meta itemprop="position" content="3">
+                </li>
+            </ol>
+        </nav>
+        <amp-img class="thumbnail" width="749" height="500" layout="responsive" src="img1.jpg"></amp-img>
+        <h1>ニキビ・乾燥・開き毛穴…悩ましい肌荒れ3つの改善方法</h1>
+        <div class="time-editor-wrap">
+            <div>
+                <p class="post-date">
+                    <time datetime="2019-05-10T20:53:12+09:00">19/05/10</time>
+                </p>
+                <span class="post-view">
+                    50k pv
+                </span>
+            </div>
+
+            <div class="editor-wrap" style="background: url(https://d2l930y2yx77uc.cloudfront.net/assets/default/default_profile-2f533b6a0048b61b8d761198d14cbb4c603f89edb03577f061efc7393b85d811.png) 4px center/48px no-repeat;">
+                <a href="/">
+                    <div class="editor-rank-name">
+                        <span class="editor-rank">キュレーター</span>
+                        <span class="editor-name">マナモワゼル</span>
+                    </div>
+                </a>
+            </div>
+        </div>
+        <div class="tag-wrap">
+            <ul class="tag-list">
+                <li class="tag-element">
+                    <a href="">
+                        ニキビ
+                    </a>
+                </li>
+                <li class="tag-element">
+                    <a href="">
+                        乾燥
+                    </a>
+                </li>
+                <li class="tag-element">
+                    <a href="">
+                        毛穴トラブル
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <div class="inner-link-wrap">
+            <ol class="inner-link-list">
+                <ul class="inner-link-element">
+                    <a href="#pagelink01">実は奥深い肌荒れ対処</a>
+                </ul>
+                <ul class="inner-link-element">
+                    <a href="#pagelink02">【ニキビ肌対策】たかがニキビと軽く見てない？</a>
+                    <ol class="inner-link-in-inner-link-list">
+                        <li class="inner-link-in-inner-link-element">
+                            <a href="#pagelink0201">肌荒れの原因を生活習慣見直しから探る</a>
+                        </li>
+                    </ol>
+                </ul>
+                <ul class="inner-link-element">
+                    <a href="#pagelink03">【乾燥肌対策】ケアしすぎていない？</a>
+                </ul>
+                <ul class="inner-link-element">
+                    <a href="pagelink04">【毛穴対策】オイルケアと皮脂に注意</a>
+                    <ol class="inner-link-in-inner-link-list">
+                        <li class="inner-link-in-inner-link-element">
+                            <a href="#pagelink0401">肌を荒らして毛穴を開かせる馬油使っていない？</a>
+                        </li>
+                        <li class="inner-link-in-inner-link-element">
+                            <a href="#pagelink0402">毛穴を小さくするにはグリシルグリシン&amp;ビタミンC</a>
+                        </li>
+                        <li class="inner-link-in-inner-link-element">
+                            <a href="#pagelink0403">皮脂も毛穴を開かせる一要因</a>
+                        </li>
+                    </ol>
+                </ul>
+                <ul class="inner-link-element">
+                    <a href="#pagelink05">肌荒れに良い成分</a>
+                </ul>
+                <ul class="inner-link-element">
+                    <a href="#pagelink06">まとめ</a>
+                </ul>
+            </ol>
+            <div class="triangle">
+            </div>
+        </div>
+        <div class="entry">
+            <section class="section1">
+
+                <h2 id="pagelink01">
+                    実は奥深い肌荒れ対処
+                </h2>
+
+                <p>何かしらの<strong class="size-middle">「肌荒れ」</strong>に悩む人は、多いかと思います。しかし、肌荒れには色々な種類があります。<br><br>今回は、</p>
+
+                <div class="box">
+                    <span class="box-title">POINT</span>
+                    <p>
+                        <ul>
+                            <li>ニキビ・吹き出物ができている</li>
+                            <li>赤みが出たり粉吹きするくらい乾燥している</li>
+                            <li>毛穴が開き見た目に肌が荒く見える</li>
+                        </ul>
+                    </p>
+                </div>
+
+                <p>という3種類の肌荒れにフォーカスし、その対処法を見ていきましょう。</p>
+
+            </section>
+
+            <section class="section2">
+                <h2 id="pagelink02">【ニキビ肌対策】たかがニキビと軽く見てない？</h2>
+                <p>誰でもニキビや吹き出物はできます。たまにプツッとできるくらいであれば、そこまで気にしなくても良いでしょう。<br>私も皮膚科医に言われたことがありますが、例え野菜だけを食べていたとしても、ニキビはできる時はできます。
+                </p>
+                <p>ただし、同じところに何回も繰り返しニキビができたり、あるいは見た目に「ひどいな」と思うくらいの量ができてしまっている場合は、まずは皮膚科を受診してください。<strong>慢性化した頑固なニキビに対しては、色々とコスメを漁るよりも、きちんと薬で治療した方が効率が良いことの方が多いです。</strong>
+                </p>
+                <h3 id="pagelink0201">肌荒れの原因を生活習慣見直しから探る</h3>
+                <div class="img-wrapper">
+                    <amp-img width="720" height="380" layout="responsive" src="img2.png"></amp-img>
+                </div>
+                <p>しかし、皮膚科で治療を提案してもらったとしても、スッキリ治らないこともあるかもしれません。そんな時は、生活習慣を1つずつ見直してみましょう。</p>
+                <div class="box">
+                    <span class="box-title">POINT</span>
+                    <ul>
+                        <li>肉類や揚げ物が多すぎる食生活をしていないか？</li>
+                        <li>洗顔・シャンプーなど洗剤類から合成界面活性剤を排除してみる。（石けん成分のものを使う）</li>
+                        <li>枕カバーや寝具は清潔か？</li>
+                        <li>クレイパックやスクラブなど、ニキビケアを意識しすぎて物理刺激が多くなっていないか？</li>
+                        <li>ストレスのコントロールができているか？→運動は足りているか？（ストレス発散には運動も大切です。）</li>
+                        <li>髪が顔に当たり摩擦になっていないか？</li>
+                    </ul>
+                </div>
+                <p>細かいこと、あるいは当たり前のことばかりですが、しつこいニキビ肌を改善するには、細々気を配ることも必要です。<br>特に運動やストレスコントロールは重要かと思います。ストレスを減らすことは難しいですが、発散できるよう工夫していきましょう。
+                </p>
+                <p>ニキビや吹き出物は、時が過ぎれば落ち着くことも多いですが、そう言っている間に目立つニキビ跡をたくさん抱えることになるかもしれません。そうなれば、後からそれを消すためのコストがかかります。<br>できれば発生する数を抑え、できても早く鎮静化するようにしたいものです。
+                </p>
+            </section>
+
+            <section class="section3">
+                <h2 id="pagelink03">【乾燥肌対策】ケアしすぎていない？</h2>
+                <div class="img-wrapper">
+                    <amp-img width="254" height="194" layout="responsive" src="img3.png"></amp-img>
+                </div>
+                <p>肌の乾燥の自覚がある人は、念入りなケアをしていることと思います。しかし、それが逆に肌を乾燥させることになっていないか、今一度チェックしてみることも重要です。<br>陥りやすいのが、<strong
+                        class="size-middle">「肌の濡らしすぎ」</strong>です。</p>
+                <p>日本人は特に「化粧水信仰」です。海外では、化粧水は顔を拭き取るという用途で使用します。一方日本では、うるおいを与えるために使用します。<br>雑誌などでも「化粧水はケチらずたっぷりの量を、何度も肌に押さえるように入れ込みましょう」という方法が紹介されますが、しかし肌に水分が入る量には限りがあります。<br>もし肌が含むことができる水分の量に上限がないのであれば、お風呂に入ったらその分水分を取り込み、そのままキープされるはずです。しかし、お風呂上がりの肌にいくらボディクリームでフタをしても、いずれ水分は蒸発して乾きます。
+                </p>
+                <p><strong>化粧水の重ね付けは、やりすぎると物理刺激で角質肥厚やシミの原因になります。</strong>ヒアルロン酸やセラミドなど「水を掴む」機能を持つ化粧水を適量使用したら、後は乳液やクリームなど<strong
+                        class="marker">違うアイテム</strong>で保湿するようにしましょう。</p>
+                <p>また、流行りのシートマスクの多用も、余計に乾燥を招く可能性があります。<br><strong>特に、美白系のマスクを愛用している方は気を付けてください。美白成分を浸透させるために、合成界面活性剤が多めに含まれていることがあり、それが肌のバリア機能を壊し、より乾燥肌へと導いてしまいます。</strong>
+                </p>
+                <div class="img-wrapper">
+                    <amp-img width="749" height="500" layout="responsive" src="img4.jpg"></amp-img>
+                </div>
+                <div class="box">
+                    <span class="box-title">POINT</span>
+                    <ul>
+                        <li>乾燥するからといって、化粧水やパック類で濡らすことがうるおいを与えることでは必ずしもないということを覚えておいてください。</li>
+                    </ul>
+                </div>
+            </section>
+
+            <section class="section4">
+                <h2 id="pagelink04">【毛穴対策】オイルケアと皮脂に注意</h2>
+                <div class="img-wrapper">
+                    <amp-img width="749" height="500" layout="responsive" src="img5.png"></amp-img>
+                </div>
+                <p>今は少し下火にはなっていますが、未だ根強い人気を誇る<strong>オイルケア</strong>。確かに肌にオイルを与えると、栄養不足の肌はみるみる蘇るように美しくなります。</p>
+                <p>アレルギーが起きないよう配慮された一般の化粧品は、反面栄養素や有効成分がカットされています。しかしオイルにおいては、精製するか否かという加工はあるものの、ほとんどそのままの状態であり、栄養がたっぷりのオイルは合えば絶大な効果があるのです。<br>ただし、オイルケアには注意点があります。実は、<strong
+                        class="size-middle">使ってはいけないオイル</strong>があるのです。</p>
+                <h3 id="pagelink0401">肌を荒らして毛穴を開かせる馬油使っていない？</h3>
+                <p>よく「乾燥すると毛穴が開いて見える」ということが言われます。そのため、乾燥を防ごうとして必死にオイルを塗りこみますが、それが<strong
+                        class="marker">まったくの逆効果</strong>になっている可能性があります。</p>
+                <p>まだあまり知られていませんが、オレイン酸を含むオイルを肌に塗るのはリスキーです。<strong>何故なら、オレイン酸が肌を荒らしてしまうということが分かったからです。</strong><br>資生堂の研究では、実際にオレイン酸を塗ることで、肌が荒れた状態になることが確認されました。毛穴は「すり鉢状」に変形し、より大きく見える状態になります。<a
+                        href="https://www.shiseidogroup.jp/newsimg/archive/00000000000373/373_n3c34_jp.pdf"
+                        target="_blank">（参考）</a>
+                </p>
+                <div class="img-wrapper">
+                    <amp-img width="749" height="500" layout="responsive" src="img6.png"></amp-img>
+                </div>
+                <p><strong>避けなければならないのが、馬油・オリーブオイル・マカダミアナッツオイルです。</strong>これらのオイルには、豊富にオレイン酸が含まれているため、塗れば塗る程毛穴がすり鉢状になり、目立つようになってしまいます。
+                </p>
+                <p>しかし、オイルケアは目に見えて肌がキレイになるので、続けたいという人もいるでしょう。<br><strong>そんな場合は、ホホバオイル・ローズヒップオイル・セサミオイル（太白ゴマ油）などに変えましょう。これらであればオレイン酸を含まないため、肌を荒らすことなく栄養補給できます。</strong>
+                </p>
+                <h3 id="pagelink0402">毛穴を小さくするにはグリシルグリシン&amp;ビタミンC</h3>
+                <p>毛穴を小さくするのに有効な成分は、「グリシルグリシン」や「ビタミンC」です。<br><strong>グリシルグリシンは、オレイン酸や物理刺激による炎症を鎮めてくれる作用があります。また、ビタミンCやビタミンC誘導体は、皮脂の分泌を抑えて毛穴を引き締めてくれます。</strong>
+                </p>
+                <h3 id="pagelink0403">皮脂も毛穴を開かせる一要因</h3>
+                <p>一時期「皮脂は天然のクリーム」と言われていましたが、最近の研究では、皮膚表面のpHを整えるのが主な役割であり、皮脂は肌のうるおいを保つ力はないとされています。<br><strong>そればかりか、毛穴から分泌される皮脂にもオレイン酸が含まれているため、余分な皮脂は除去する必要が出てきました。</strong><br>脂取り紙を使うのは良くないと言われることもありますが、効率的に皮脂を取るには優れたアイテムです。NGアイテムだと決めつけるのは良くありません。軽く押さえるだけで皮脂を吸収してくれるので、肌に負担をかけずに済みます。
+                </p>
+                <div class="img-wrapper">
+                    <amp-img width="749" height="500" layout="responsive" src="img7.png"></amp-img>
+                </div>
+                <p>毛穴対策には、まず上記に挙げたようなオレイン酸が多く含まれるオイルの使用をやめ、分泌される自分の皮脂も適度に取り去り、毛穴を小さくするグリシルグリシンやビタミンCが含まれたコスメをコツコツ使うことです。
+                </p>
+            </section>
+
+            <section class="section5">
+                <h2 id="pagelink05">肌荒れに良い成分</h2>
+                <p>肌荒れ改善のためには、アレコレ化粧品を追加するのではなく、まずは原因を除去する方が近道です。しかし、イマイチ原因がハッキリしない時もあるでしょう。<br>そんな時は、肌荒れに良い成分が配合されたコスメを取り入れてみるのも手です。
+                </p>
+                <div class="img-wrapper">
+                    <amp-img width="749" height="500" layout="responsive" src="img8.png"></amp-img>
+                </div>
+                <p>肌荒れ対策の成分として有名なものを挙げてみます。<br>・ビタミンB群<br>・グリチルリチン酸2K　（グリチルリチン酸ジカリウム）<br>・どくだみ</p>
+                <p>ビタミンBは、コスメというよりサプリで補う方が効率的かと思います。私も、ビタミンBサプリを飲んでいると「脂漏性皮膚炎」という肌荒れを軽減することができています。</p>
+                <p>グリチルリチン酸2Kは、多くのニキビ用化粧品や敏感肌用化粧品に配合されている「肌荒れと言えばコレ」といった成分です。生薬の甘草の根や茎から抽出され、炎症を抑える効果を持ちます。</p>
+                <p>どくだみも、昔から解毒作用があると言われ、肌荒れやニキビ対策に用いられます。ニキビ肌にはどくだみ茶を飲むのも有効です。</p>
+                <p>他にも肌荒れに効く成分はありますが、入手しやすい3つをピックアップしてみました。</p>
+            </section>
+
+            <section class="section6">
+                <h2 id="pagelink06">まとめ</h2>
+                <p>肌荒れは難しい問題です。皮膚はデリケートであり、不調の原因がハッキリと分からないこともあります。<br>しかし、生活習慣を見直し、コスメ・皮膚科と色々なものの力を少しずつ借りることで改善することもあるでしょう。<br>改善方法については、「試してみるまではわからない」点もありますが、例えば皮脂を除去したり、オイルの種類に気を付けるなどすぐにできることもあります。<br>そうして肌のことを探ることで、より自分への理解を深めることもできます。諦めず、投げ出さずに地道に肌と向き合っていきましょう。<br>
+                </p>
+            </section>
+        </div>
+    </article>
+</body>
+
+</html>
